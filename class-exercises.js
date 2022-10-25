@@ -1,4 +1,3 @@
-
 /*
 CIS 124: Introduction to JavaScript
 Chapter 4 Class Exercises
@@ -17,7 +16,7 @@ Car Data: https://cars.usnews.com/cars-trucks/advice/cars-with-the-best-gas-mile
 // 2.1 Number
 const venza = 39;
 const escape = 41;
-const camry
+//
 
 let toyota = ["Venza", "RAV4 Hybrid", "Avalon Hybrid", "Camry Hybrid", "Prius"]
 let ford = ["Escape Hybrid"]
