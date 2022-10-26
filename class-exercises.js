@@ -3,76 +3,123 @@ CIS 124: Introduction to JavaScript
 Chapter 4 Class Exercises
 Dominique Tepper, 24OCT2022
 
-    2.1 Coding example using a Number, String and Date method (one of each object)
-    2.2 Coding example using a Function - create a standard function with no parameters, does not return a value
-    2.3 Coding example using a Function - which returns a value
-    2.4 Rewrite the above Function using an arrow function
-    2.5 Instantiate a simple Object with properties and methods
+    1. Coding example using a Number, String and Date method (one of each object)
+    2. Coding example using a Function - create a standard function with no parameters, does not return a value
+    3. Coding example using a Function - which returns a value
+    4. Rewrite the above Function using an arrow function
+    5. Instantiate a simple Object with properties and methods
 
-Tables Reference: https://www.fwait.com/how-to-create-table-from-an-array-of-objects-in-javascript/
-Car Data: https://cars.usnews.com/cars-trucks/advice/cars-with-the-best-gas-mileage
+Reference:
+Math Constants: http://www.numericana.com/answer/constants.htm
+  
 */
 
-// 2.1 Number
-const venza = 39;
-const escape = 41;
-//
+"use strict";
 
-let toyota = ["Venza", "RAV4 Hybrid", "Avalon Hybrid", "Camry Hybrid", "Prius"]
-let ford = ["Escape Hybrid"]
-let lexus = ["ES Hybrid"]
-let Hyundai = ["Sonata Hybrid", "Elantra", "Ioniq"]
-let honda = ["Accord Hybrid", "Insight"]
+/*** 1. DATA TYPES ****************************************/
+
+// A - Number. Tepper, 25OCT2022.
+const pi = 3.1415926535;
+const sqrt2 = 1.4142135623;
+const sqrt3 = 1.7320508075;
+const log2 = 0.3010299956;
+
+// 2.1B - String. Tepper, 25OCT2022.
+const avogadro = "A = 6.02214129(27) 10^23/mol";
+const einstein = "c = 299792458 m/s";
+const boltzmann = "k = 1.3806488(13) 10^-23 J/K";
+
+// B - String (in Arrays). Tepper, 25OCT2022.
+const piTxt = ["pi = ", "Pi is the ratio of the perimeter of a circle to its diameter. On March 14 of every year, the world celebrates ", "Pi Day"];
+
+const sqrt2Txt = ["sqrt(2) = ", "Root 2 is the diagonal of a square of unit side. It is also known as ", "Pythagoras' Constant"];
+
+const sqrt3Txt = ["sqrt(3) = ", "Root 3 is the diameter of a cube of unit side. Also called ", "Constant of Theodorus" ];
+
+const log2Txt = ["log(2) = ", "Its 5-digit value is memorized by every engineer", "and is deemed precise to its 8th digit."];
 
 
-/* let btnCars = document.querySelector("btn-cars");
-let carsTable = document.querySelector('#table-cars');
+// C - Date. Tepper, 25OCT2022.
+const today = new Date();
 
-let cars = [
-    { make: 'Toyota', model: 'Venza', mpg: 39 },
-    { make: 'Toyota', model: 'RAV4 Hybrid', mpg: 40 },
-    { make: 'Ford', model: 'Escape Hybrid', mpg: 41 },
-    { make: 'Lexus', model: 'UX 250h', mpg: 42 },
-    { make: 'Toyota', model: 'Avalon Hybrid', mpg: 44 },
-    { make: 'Lexus', model: 'ES Hybrid', mpg: 44 },
-    { make: 'Honda', model: 'Accord Hybrid', mpg: 44},
-    { make: 'Kia', model: 'Niro', mpg: 49 },
-    { make: 'Hyundai', model: 'Sonata Hybrid', mpg: 52},
-    { make: 'Toyota', model: 'Camry Hybrid', mpg: 52},
-    { make: 'Honda', model: 'Insight', mpg: 52},
-    { make: 'Hyundai', model: 'Elantra', mpg: 54},
-    { make: 'Toyota', model: 'Prius', mpg: 56},
-    { make: 'Hyundai', model: 'Ioniq', mpg: 59}
-]
 
-let headers = ["Make", "Model", "MPG"];
+/*** FUNCTIONS ****************************************/
 
-btn-cars.addEventListener('click', () => {
-    let table = document.createElement('table-cars');
-    let headerRow = document.createElement('tr');
+let welcome1 = "Hello! This is a Chapter 4 class exercise for CIS 124: Introduction to JavaScript. ";
+let welcome2 = "Chapter 4 shows how to work with JavaScript objects, functions, and events.";
+let welcome3 = " Below are some examples of commonly used constant values in Math and Physics.";
+let title = "Math & Physics Constants";
 
-    headers.forEach(headerText => {
-        let header = document.createElement('th');
-        let textNode = document.createTextNode(headerText);
-        header.appendChild(textNode);
-        headerRow.appendChild(header);
-    });
+// 2. Functions that don't return values. Tepper, 25OCT2022.
+function hello() {
+    document.write(welcome1 + welcome2 + welcome3);
+}
 
-    table.appendChild(headerRow);
+function strConstants () {
+    document.write(`<br><h3><b>Other constants (string values)</b></h3><p><b>Avogadro's Number: </b>${avogadro}</p><p><b>Einstein's Constant: </b>${einstein}</p><p><b>Boltzmann's Constant: </b>${boltzmann}</p><br>`)
+}
 
-    cars.forEach(car => {
-        let row = document.createElement('tr');
+// 3. Function that return a values. Tepper, 25OCT2022.
 
-        Object.values(car).forEach(text => {
-            let cell = document.createElement ('td');
-            let textNode = document.createTextNode(text);
-            cell.appendChild(textNode);
-            row.appendChild(cell);
-        })
+// date value
+function now() {
+    document.write(`<br><h3><b>${today.toDateString()}, ${title}</h3></b> <br>`);
+}
 
-        table.appendChild(row);
-    });
+// string and numeric values
+function constDesc() {
+    document.write(`<h4>${piTxt[0]} ${pi.toFixed(3)}</h4><p>${piTxt[1]} <u>${piTxt[2]}</u></p>`);
+    
+    document.write(`<h4>${sqrt2Txt[0]} ${sqrt2.toFixed(3)}</h4><p>${sqrt2Txt[1]} <u>${sqrt2Txt[2]}</u></p>`);
 
-    myTable.appendChild(table-cars);
+    document.write(`<h4>${sqrt3Txt[0]}${sqrt3.toFixed(3)}</h4><p>${sqrt3Txt[1]} <u>${sqrt3Txt[2]}</u></p>`);
 
-}); */
+    document.write(`<h4>${log2Txt[0]} ${log2.toFixed(3)}</h4><p>${log2Txt[1]} (<b>${log2.toFixed(5)}</b>) <u>${log2Txt[2]}</u></p>`);
+}
+
+now();
+hello();
+constDesc();
+strConstants();
+
+
+// 4. Arrow Functions. Tepper, 25OCT2022.
+
+// Rewrite functions into arrow functions
+
+let radius = 0;
+
+// Function expression that calculates circumference
+function calcCirc1() {
+    radius = 3;
+
+    const circ = pi * (radius * radius);
+    document.write(`<h4>Function Expression:</h4> <p>A circle with a radius of ${radius} has the circumference of ${circ.toFixed(2)}.</p>`)
+}
+calcCirc1();
+
+// The above function converted into an arrow function
+const calcCirc2 = (radius, pi) => {
+    pi = 3.1415926535;
+    radius = 4.32165;
+    const circ = pi * (radius * radius);
+    document.write(`<h4>Arrow Function:</h4> <p>A circle with a radius of ${radius} has the circumference of ${circ.toFixed(2)}.</p>`)
+}
+calcCirc2();
+
+
+/*** 5. INSTANTIATION ****************************************/
+
+// Instantiate a simple Object with properties and methods
+
+let referenceEl = document.getElementById("reference-el");
+
+let refAuthor = "Michon, G.";
+let refSite = "Numerical Constants. http://www.numericana.com/answer/constants.htm";
+
+function reference() {
+    let refStr = "Reference: " + refAuthor +  refSite + ".";
+    referenceEl.textContent = refStr;
+}
+
+reference();
